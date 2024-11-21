@@ -4,6 +4,7 @@
   "description": "The functions",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "repository": {
     "directory": "packages/components",
     "type": "git",

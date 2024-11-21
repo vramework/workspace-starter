@@ -6,6 +6,7 @@
   "private": true,
   "author": "yasser.fadl@gmail.com",
   "main": "bin/start.ts",
+  "type": "module",
   "scripts": {
     "tsc": "tsc",
     "start": "ts-node --transpile-only bin/start.ts",

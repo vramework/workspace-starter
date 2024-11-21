@@ -1,12 +1,12 @@
 import { addRoute, ConflictError } from '@vramework/core'
-import { isTodoCreator } from '../../permissions'
+import { isTodoCreator } from '../../permissions.js'
 import {
   getTodos,
   getTodo,
   deleteTodo,
   updateTodo,
   createTodo,
-} from './todo.functions'
+} from './todo.functions.js'
 
 addRoute({
   method: 'get',

@@ -4,7 +4,7 @@
 
 import { CoreVrameworkFetch, CoreVrameworkFetchOptions } from '@vramework/fetch'
 
-import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d'
+import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d.js'
 
 export class VrameworkFetch {
     private client: CoreVrameworkFetch;

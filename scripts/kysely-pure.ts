@@ -1,5 +1,9 @@
 import { mkdir, readFile, writeFile } from 'fs/promises'
 
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
 const main = async () => {
 
   let kysely = await readFile(

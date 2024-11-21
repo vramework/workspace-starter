@@ -6,16 +6,19 @@
   "private": true,
   "author": "yasser.fadl@gmail.com",
   "main": "bin/start.ts",
+  "type": "module",
   "scripts": {
+    "esm": "node --no-warnings --enable-source-maps --loader ts-node/esm",
     "tsc": "tsc",
-    "start": "ts-node --transpile-only bin/start.ts start",
-    "dev": "tsnd --respawn bin/start.ts | pino-pretty -i time,hostname,pid",
+    "dev": "npm run esm -- bin/start.ts",
+    "dev:watch": "nodemon --respawn bin/start.ts | pino-pretty -i time,hostname,pid",
     "ncu": "ncu"
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@vramework/core": "^0.5.16",
     "@vramework/express": "^0.5.6",
+    "@vramework/schedule": "^0.6.0",
     "pino-pretty": "^11.3.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.0",
@@ -23,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "nodemon": "^3.1.7",
     "ts-node-dev": "^2.0.0"
   }
 }

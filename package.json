@@ -7,7 +7,7 @@
   "repository": "git@github.com:vramework/workspace-starter.git",
   "author": "Yasser Fadl <yasser.fadl@gmail.com>",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "workspaces": {
     "packages": [
       "packages/**",
@@ -16,10 +16,11 @@
     ]
   },
   "scripts": {
-    "dbmigrate": "ts-node --transpile-only scripts/db-migrate.ts",
+    "esm": "node --no-warnings --enable-source-maps --loader ts-node/esm",
+    "dbmigrate": "npm run esm -- scripts/db-migrate.ts",
     "vramework": "npx @vramework/cli all",
     "kysely": "DATABASE_URL=postgres://postgres:password@localhost/todos kysely-codegen --camel-case --schema public",
-    "kysely-pure": "ts-node scripts/kysely-pure.ts",
+    "kysely-pure": "npm run esm -- scripts/kysely-pure.ts",
     "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run vramework && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
@@ -61,6 +62,8 @@
     "@vramework/next": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/next",
     "@vramework/uws-handler": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-handler",
     "@vramework/uws": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-server",
-    "@vramework/jose": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/jose"
+    "@vramework/jose": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/jose",
+    "@vramework/schedule": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/schedule",
+    "@vramework/pino": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/pino"
   }
 }

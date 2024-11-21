@@ -1,9 +1,9 @@
 import { addScheduledTask } from '@vramework/core'
-import { expireTodos } from './todo.functions'
+import { expireTodos } from './todo.functions.js'
 
 addScheduledTask({
     title: 'expireTodos',
-    schedule: '0 0 0 * * *',
+    schedule: '* * * * *',
     func: expireTodos,
     docs: {
         tags: ['todos']

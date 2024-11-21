@@ -1,6 +1,6 @@
 import { addRoute } from '@vramework/core'
-import { isUserUpdatingSelf } from '../../permissions'
-import { loginUser, logoutUser, updateUser } from './user.functions'
+import { isUserUpdatingSelf } from '../../permissions.js'
+import { loginUser, logoutUser, updateUser } from './user.functions.js'
 
 addRoute({
   method: 'post',

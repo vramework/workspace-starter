@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs",
+    "module": "Node16",
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "removeComments": true,
@@ -15,7 +15,7 @@
     "allowJs": false,
     "outDir": "dist",
     "baseUrl": ".",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "paths": {
       "@todos/functions": ["./packages/functions"],
       "@todos/functions/*": ["./packages/functions/*"],

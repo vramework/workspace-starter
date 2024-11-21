@@ -1,5 +1,5 @@
-import * as DB from '@todos/sdk/generated/db-pure'
-import { User } from './user.types'
+import * as DB from '@todos/sdk/generated/db-pure.js'
+import { User } from './user.types.js'
 
 export type Todo = Omit<DB.AppTodo, '_ignore_'>
 

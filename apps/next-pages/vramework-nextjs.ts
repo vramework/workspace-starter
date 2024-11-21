@@ -14,14 +14,14 @@ import { VrameworkNextJS } from '@vramework/next'
 import type { IncomingMessage, ServerResponse } from 'http'
 import type { NextApiRequest, NextApiResponse } from 'next/dist/shared/lib/utils'
 import type { APIRouteMethod } from '@vramework/core/types/routes.types'
-import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d'
+import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d.js'
 
-import { createConfig as createConfig } from '@todos/functions/src/config'
-import { createSingletonServices as createSingletonServices } from '@todos/functions/src/services'
-import { createSessionServices as createSessionServices } from '@todos/functions/src/services'
+import { createConfig as createConfig } from '@todos/functions/src/config.js'
+import { createSingletonServices as createSingletonServices } from '@todos/functions/src/services.js'
+import { createSessionServices as createSessionServices } from '@todos/functions/src/services.js'
 
-import '@todos/functions/.vramework/vramework-routes'
-import '@todos/functions/.vramework/vramework-schemas/register'
+import '@todos/functions/.vramework/vramework-routes.js'
+import '@todos/functions/.vramework/vramework-schemas/register.js'
 
 let _vramework: VrameworkNextJS | undefined
 

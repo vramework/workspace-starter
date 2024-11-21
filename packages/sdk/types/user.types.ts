@@ -1,4 +1,4 @@
-import * as DB from '@todos/sdk/generated/db-pure'
+import * as DB from '@todos/sdk/generated/db-pure.js'
 
 export type User = DB.AppUser
 

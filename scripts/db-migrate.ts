@@ -1,9 +1,13 @@
-import { Client } from 'pg'
+import pg from 'pg'
 import { migrate } from 'postgres-migrations'
 import { LocalSecretService } from '@vramework/core'
 
-import { createConfig } from '@todos/functions/src/config'
-import { getDatabaseConfig } from '@todos/functions/src/services/kysely'
+import { createConfig } from '@todos/functions/src/config.js'
+import { getDatabaseConfig } from '@todos/functions/src/services/kysely.js'
+
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export const migrateDB = async () => {
   const config = await createConfig()
@@ -16,7 +20,7 @@ export const migrateDB = async () => {
 
   // Create the database if it doesn't exist
   {
-    const client = new Client({
+    const client = new pg.Client({
       ...databaseConfig,
       database: 'postgres',
       ssl: config.sql.ssl,
@@ -31,7 +35,7 @@ export const migrateDB = async () => {
     }
   }
 
-  const client = new Client({
+  const client = new pg.Client({
     ...databaseConfig,
     ssl: config.sql.ssl,
   })

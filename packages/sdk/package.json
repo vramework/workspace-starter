@@ -4,6 +4,7 @@
   "description": "The sdk methods shared by backend and frontend applications",
   "license": "UNLICENSED",
   "private": true,
+  "type": "module",
   "repository": {
     "directory": "packages/api",
     "type": "git",

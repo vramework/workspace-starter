@@ -1,5 +1,6 @@
+import { fileURLToPath } from 'url';
 import { CreateConfig, LogLevel } from '@vramework/core'
-import { Config } from '../types/application-types'
+import { Config } from '../types/application-types.js'
 
 export const createConfig: CreateConfig<Config> = async () => ({
   port: 4002,
@@ -9,6 +10,6 @@ export const createConfig: CreateConfig<Config> = async () => ({
     postgresCredentials: 'POSTGRES_CREDENTIALS',
   },
   sql: {
-    directory: `${__dirname}/../../../sql`,
+    directory: `${fileURLToPath(import.meta.url)}/../../../sql`,
   },
 })
