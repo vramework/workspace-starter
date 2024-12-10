@@ -19,7 +19,8 @@ const fetch = async () => {
 
 const websocket = async () => {
     return new Promise(async (resolve) => {
-        const websocket = new VrameworkWebSocket<'/event'>('ws://localhost:4002/event')
+        console.log('Starting websocket')
+        const websocket = new VrameworkWebSocket<'/event'>('ws://0.0.0.0:4002/event')
         websocket.ws.onopen = () => {
             console.error('Websocket opened')
 
@@ -30,7 +31,10 @@ const websocket = async () => {
             websocket.send('hello')
 
             const route = websocket.getRoute('action')
-            route.send('subscribe', {} as any)
+            route.subscribe('subscribe', async (data) => {
+                console.log(data)
+            })
+            route.send('subscribe', { name: 'test' })
             
             setTimeout(() => {
                 websocket.ws.onclose = resolve
@@ -44,13 +48,13 @@ const websocket = async () => {
 }
 
 const main = async () => {
-    await fetch()
     if (process.argv.includes('--websocket')) {
         for (let i = 0; i < 1; i++) {
             await websocket()
             await new Promise((resolve) => setTimeout(resolve, 1000))
         }
     }
+    await fetch()
 }
 
 main()
